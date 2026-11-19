@@ -625,10 +625,6 @@ if __name__ == '__main__':
   <div style="margin-left:auto;display:flex;gap:4px;flex-wrap:wrap;align-items:center;">
     <button class="link-btn lb-gray"  id="btn-ali" onclick="openUnivLink('ali')">📋 대학알리미</button>
     <button class="link-btn lb-blue"  id="btn-aN" onclick="openUnivLink('aN')">🔍 어디가(2026)</button>
-    <button class="link-btn lb-blue"  id="btn-aP" onclick="openUnivLink('aP')">🔍 어디가(2025)</button>
-    <button class="link-btn lb-green" id="btn-hp"  onclick="openUnivLink('hp')">🏫 입학처홈페이지</button>
-    <button class="link-btn lb-red"   id="btn-res" onclick="openUnivLink('res')">📌 대학발표입결</button>
-    <button class="link-btn lb-purple" onclick="window.open('https://bejewled-begonia-468.notion.site/d3f1e626dc134951af4054eef95be578?v=a2eaceef95cc4a78afdf69539f7ef0f2','_blank')">대학 훑어보기</button>
     <button class="link-btn lb-gray" onclick="UPD.open()" title="엑셀 또는 Claude로 새 연도 자료 넣기">🔄 업데이트</button>
   </div>
 </div>
@@ -907,7 +903,6 @@ function applyYearLabels(){
   document.title = t;
   const h = document.getElementById('hdr-title'); if (h) h.textContent = '📊 ' + t;
   const bn = document.getElementById('btn-aN'); if (bn) bn.textContent = `🔍 어디가(${LATEST_YEAR})`;
-  const bp = document.getElementById('btn-aP'); if (bp) bp.textContent = `🔍 어디가(${LATEST_YEAR-1})`;
 }
 
 // 선택된 학과의 전형(jung)별 4개년 시계열 (현재 교과/종합, 인문/자연 필터 반영)
@@ -1801,10 +1796,7 @@ function updateHeaderButtons(univName) {
   const ldata = LINKS[univName] || {};
   const btns = {
     'btn-ali': {key:'ali', label:'📋 대학알리미'},
-    'btn-aN': {key:'aN', label:`🔍 어디가(${LATEST_YEAR})`},
-    'btn-aP': {key:'aP', label:`🔍 어디가(${LATEST_YEAR-1})`},
-    'btn-hp':  {key:'hp',  label:'🏫 입학처홈페이지'},
-    'btn-res': {key:'res', label:'📌 대학발표입결'}
+    'btn-aN': {key:'aN', label:`🔍 어디가(${LATEST_YEAR})`}
   };
   Object.entries(btns).forEach(([id, {key, label}]) => {
     const el = document.getElementById(id);
